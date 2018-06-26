@@ -34,29 +34,29 @@
 
 
     <!--  Nav Bar -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="#">Maybeat</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">Maybeat</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-     
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Artistas
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Opção 1 </a>
-          <a class="dropdown-item" href="#">Opção 2 </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Opção 3 </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Opção 1 </a>
+                        <a class="dropdown-item" href="#">Opção 2 </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Opção 3 </a>
+                    </div>
+                </li>
+            </ul>
         </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+    </nav>
     <!-- Header -->
 
     <div id="headerWrapper">
@@ -64,9 +64,94 @@
         <div id="logotext"></div>
         <div id="fore-flower"></div>
     </div>
-    <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum. O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
-    O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
+    <div class="container-fluid>">
+        <div class="row">
+            <!-- left side bar -->
+            <div class="col-md-2">Left Side Bar</div>
 
+            <!-- Main content -->
+            <div class="col-md-8">
+                <div class="row">
+                    <h2 class="text-xs-center">Promoções de Artistas</h2>
+                    </div>
+                 <div class="row">
+                    <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                     
+                                         <div class="col-md-3">
+                        <h4>Artista 1</h4>
+                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <p class="list-price text-danger">Preço <s>500€</s></p>
+                        <p class="price">Preço especial: 350€</p>
+                        <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+            <!-- right side bar -->
+            <div class="col-md-2">Right Side Bar</div>
+        </div>
+    </div>
     <script>
         jQuery(window).scroll(function({
             var vscroll = jQuery(this).scrollTop();
