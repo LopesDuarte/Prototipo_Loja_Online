@@ -1,6 +1,10 @@
 body{
     padding-top:50px;
 }
+.img-thumb{
+    width: auto;
+    height: 200px;
+}
 
 #headerWrapper{
     position:relative;
@@ -28,6 +32,11 @@ body{
     margin-top: -90px;
     
 }
+
+#footer{
+    margin-top: 50px;
+}
+
 /* 
 #fore-flower{
     position: absolute;

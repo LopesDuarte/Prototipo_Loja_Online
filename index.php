@@ -72,76 +72,76 @@
             <!-- Main content -->
             <div class="col-md-8">
                 <div class="row">
-                    <h2 class="text-xs-center">Promoções de Artistas</h2>
-                    </div>
-                 <div class="row">
+                    <h2 class="text-center">Promoções de Artistas</h2>
+                </div>
+                <div class="row">
                     <div class="col-md-3">
                         <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+                        <img src="images/artist1.jpg" class="img-fluid img-thumb" alt="Artista 1" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 2</h4>
+                        <img src="images/artist1.jpg" class="img-fluid img-thumb" alt="Artista 1" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 3</h4>
+                        <img src="images/artist2.jpg" class="img-fluid img-thumb" alt="Artista 2" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 4</h4>
+                        <img src="images/artist1.jpg" class="img-fluid img-thumb" alt="Artista 1" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 5</h4>
+                        <img src="images/artist2.jpg" class="img-fluid img-thumb" alt="Artista 2" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 6</h4>
+                        <img src="images/artist1.jpg" class="img-fluid img-thumb" alt="Artista 1" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 7</h4>
+                        <img src="images/artist1.jpg" class="img-fluid img-thumb" alt="Artista 1" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 8</h4>
+                        <img src="images/artist1.jpg" class="img-fluid img-thumb" alt="Artista 1" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
                     </div>
-                     
-                                         <div class="col-md-3">
-                        <h4>Artista 1</h4>
-                        <img src="images/artist1.jpg" class="img-fluid" alt="Artista 1" />
+
+                    <div class="col-md-3">
+                        <h4>Artista 9</h4>
+                        <img src="images/artist2.jpg" class="img-fluid img-thumb" alt="Artista 2" />
                         <p class="list-price text-danger">Preço <s>500€</s></p>
                         <p class="price">Preço especial: 350€</p>
                         <button type="button" class="btn btn-sm btn-sucess" data-toggle="modal" data-target="#details-1">Detalhes</button>
@@ -152,6 +152,75 @@
             <div class="col-md-2">Right Side Bar</div>
         </div>
     </div>
+    <footer class="text-center" id="footer">&copy;Copyright Duarte Lopes/ André Machado - Maybeat 2018</footer>
+
+
+    <!--Details Modal -->
+    <div class="modal fade details-1" id="details-1" tabindex="-1" role="dialog" aria-labelledby="details-1" aria-hidden="true">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Artista 1</h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            
+            <span aria-hidden="true">&times;</span>
+            </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        <div class="col-sm-6">
+                            <div class="center-block">
+                                <img src="images/artist1.jpg" alt="artista 1" class="details img-responsive img-thumb">
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <h4>Detalhes</h4>
+                        <p>Descrição sobre o artista 1.
+                        </p>
+                        <p>Preço: 350€</p>
+                        <p>Género de música: Rock, Pop</p>
+                        <form action="add_cart.php" method="post">
+                            <div class="form-group">
+                                <div class="form-group">
+
+                                    <div class="col-xs-3">
+
+                                        <label for="hours">Hours</label>
+                                        <input type="text" class="form-control" id="hours" name="hours">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="days">Days</label>
+                                        <select name="days" id="days" class="form-control">
+                               
+                               <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                               </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+                 <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button class="btn btn-warning" type="submit"><span class="glyphicon glyphicon-shopping-cart"></span> Agendar com Artista</button>
+            </div>
+            </div>
+            
+        </div>
+
+
+    </div>
+
     <script>
         jQuery(window).scroll(function({
             var vscroll = jQuery(this).scrollTop();
