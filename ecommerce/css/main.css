@@ -143,3 +143,6 @@ img.details {
     padding: 15px;
     background-color: #fff;
 }
+.totals-table-header th{
+    text-align: center;
+}

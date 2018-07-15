@@ -9,9 +9,8 @@
 	require_once BASEURL.'helpers/helpers.php';
 
     $cart_id = '';
-    if(isset($_COOKIE[CART_COOKIE])){
+    if (isset($_COOKIE[CART_COOKIE])){
         $cart_id = sanitize($_COOKIE[CART_COOKIE]);
-        
     }
 
     if(isset($_SESSION['SBUser'])){

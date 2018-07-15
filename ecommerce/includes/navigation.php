@@ -32,6 +32,7 @@
 					</ul>
 				</li>
 				<?php endwhile; ?>
+                <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> My cart</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container -->
