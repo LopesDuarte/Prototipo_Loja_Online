@@ -29,7 +29,7 @@
     }
     
     if(!empty($updated_items)){
-        $json_update = json_encode($updated_items);
+        $json_updated = json_encode($updated_items);
         $db->query("UPDATE cart SET items = '{$json_updated}' WHERE id = '{$cart_id}'");
         $_SESSION['sucess_flash'] = 'Your shopping cart has been updated!';
     }

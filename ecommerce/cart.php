@@ -38,6 +38,7 @@ if($cart_id != ''){
                 </thead>
                 <tbody>
                     <?php
+                    if(!empty($items)){
                     foreach($items as $item){
                         $product_id = $item['id'];
                         $productQ = $db->query("SELECT * FROM products WHERE id = '{$product_id}'");
@@ -62,16 +63,16 @@ if($cart_id != ''){
                                 <?=money($product['price']);?>
                             </td>
                             <td>
-                               
+
                                 <button class="btn btn-xs btn-default" onclick="update_cart('removeone','<?=$product['id'];?>','<?=$item['size'];?>');">-</button>
                                 <?=$item['quantity'];?>
-                                <?php if (!empty ($available)){ 
-                                    if($item['quantity'] < $available): ?>                       
-                                <button class="btn btn-xs btn-default" onclick="update_cart('addone','<?=$product['id'];?>','<?=$item['size'];?>');">+</button>
-                                <?php else: ?>
+                                    <?php if (!empty ($available)){ 
+                                    if($item['quantity'] < $available): ?>
+                                    <button class="btn btn-xs btn-default" onclick="update_cart('addone','<?=$product['id'];?>','<?=$item['size'];?>');">+</button>
+                                    <?php else: ?>
                                     <span class="text-danger">Max Reached</span>
-                                <?php endif;} ?>                           
-                                
+                                    <?php endif;} ?>
+
 
                             </td>
                             <td>
@@ -86,6 +87,7 @@ if($cart_id != ''){
                         $item_count += $item['quantity'];
                         $sub_total += ($product['price']*$item['quantity']);
                 }
+                    }
                     $tax = TAXRATE * $sub_total;
                     $tax = number_format($tax,2);
                     $grand_total = $tax + $sub_total;
@@ -126,18 +128,59 @@ if($cart_id != ''){
 
             <!-- Modal -->
             <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="checkoutModalLabel">Shipping Adress</h4>
+                            <h4 class="modal-title" id="checkoutModalLabel">Shipping Address</h4>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <div class="row">
+                                <form action="thankYou.php" method="post" id="payment-form">
+                                    <span class="bg-danger" id="payment-errors"></span>
+                                    <div id="step1" style="dysplay: block;">
+                                        <div class="from-group col-md-6">
+                                            <label for="full_name">Full Name:</label>
+                                            <input class="form-control" id="full_name" name="full_name" type="text">
+                                        </div>
+                                        
+                                        <div class="from-group col-md-6">
+                                            <label for="email">Email:</label>
+                                            <input class="form-control" id="email" name="email" type="email">
+                                        </div>
+                                        
+                                        <div class="from-group col-md-6">
+                                            <label for="street">Street Address</label>
+                                            <input class="form-control" id="street" name="street" type="text">
+                                        </div>
+                                        
+                                        <div class="from-group col-md-6">
+                                            <label for="street2">Street Address 2:</label>
+                                            <input class="form-control" id="street2" name="street2" type="text">
+                                        </div>
+                                        
+                                        <div class="from-group col-md-6">
+                                            <label for="city">City:</label>
+                                            <input class="form-control" id="city" name="city" type="text">
+                                        </div>
+                                        
+                                        <div class="from-group col-md-6">
+                                            <label for="country">Country:</label>
+                                            <input class="form-control" id="country" name="country" type="text">
+                                        </div>
+                                        
+                                        <div class="from-group col-md-6">
+                                            <label for="zip_code">Zip Code:</label>
+                                            <input class="form-control" id="zip_code" name="zip_code" type="text">
+                                        </div>
+                                    </div>
+                                    <div id="step2" style="dysplay: none;"></div>
+                                </form>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="check_address();">Next</button>
                         </div>
                     </div>
                 </div>
@@ -146,6 +189,35 @@ if($cart_id != ''){
         </div>
 
     </div>
+<script>
+
+    function check_address(){
+        var data = {'ful_name' : jQuery('#full_name').val(),
+        'email' : jQuery['#email'].val(),
+        'street' : jQuery['#street'].val(),
+        'street2' : jQuery['#street2'].val(),
+        'city' : jQuery['#city'].val(),
+        'zip_code' : jQuery['#zip_code'].val(),
+        'country' : jQuery['#country'].val(),
+        
+    }
+    jQuery.ajax({
+       url : '/ecommerce/admin/parsers/check_address.php',
+        method : 'POST',
+        data : data,
+        sucess : function(data){
+            if(data != 'passed'){
+                jQuery('#payment-errors').html(data);
+            }
+            if(data == 'passed'){
+                alert('Passed');
+            }
+            
+        },
+        error : function(){alert("Something went wrong.");},
+    });
+    
+</script>
 
     <?php include 'includes/footer.php';
 ?>
