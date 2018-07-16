@@ -3,7 +3,6 @@
     include 'includes/head.php';
     include 'includes/navigation.php';
     include 'includes/headerpartial.php';
-
 if($cart_id != ''){
     $cartQ = $db->query("SELECT * FROM cart WHERE id ='{$cart_id}'");
     $result = mysqli_fetch_assoc($cartQ);
@@ -190,18 +189,17 @@ if($cart_id != ''){
 
     </div>
 <script>
-
     function check_address(){
         var data = {
         'full_name' : jQuery('#full_name').val(),
-        'email' : jQuery['#email'].val(),
-        'street' : jQuery['#street'].val(),
-        'street2' : jQuery['#street2'].val(),
-        'city' : jQuery['#city'].val(),
-        'zip_code' : jQuery['#zip_code'].val(),
-        'country' : jQuery['#country'].val(),
+        'email' : jQuery('#email').val(),
+        'street' : jQuery('#street').val(),
+        'street2' : jQuery('#street2').val(),
+        'city' : jQuery('#city').val(),
+        'zip_code' : jQuery('#zip_code').val(),
+        'country' : jQuery('#country').val(),
         
-    }
+    };
     jQuery.ajax({
         url : '/ecommerce/admin/parsers/check_address.php',
         method : 'POST',
@@ -217,8 +215,7 @@ if($cart_id != ''){
         },
         error : function(){alert("Something went wrong.");},
     });
-    
+    }
 </script>
-
     <?php include 'includes/footer.php';
 ?>
