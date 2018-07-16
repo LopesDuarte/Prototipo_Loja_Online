@@ -9,6 +9,11 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Scripts -->
+	<script src="/js/jquery-1.12.3.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>

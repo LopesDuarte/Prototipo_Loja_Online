@@ -10,9 +10,9 @@ if($cart_id != ''){
     $i = 1;
     $sub_total = 0;
     $item_count = 0;
- 
+
 }
-    
+
 ?>
 
     <div class="col-md-12">
@@ -45,8 +45,8 @@ if($cart_id != ''){
                         $sArray = explode('.',$product['sizes']);
                         foreach($sArray as $sizeString){
                             $s = explode(':',$sizeString);
-                            if($s[0] == $item['size']){ 
-                                
+                            if($s[0] == $item['size']){
+
                             $available = $s[1];
                             }
                         }
@@ -65,7 +65,7 @@ if($cart_id != ''){
 
                                 <button class="btn btn-xs btn-default" onclick="update_cart('removeone','<?=$product['id'];?>','<?=$item['size'];?>');">-</button>
                                 <?=$item['quantity'];?>
-                                    <?php if (!empty ($available)){ 
+                                    <?php if (!empty ($available)){
                                     if($item['quantity'] < $available): ?>
                                     <button class="btn btn-xs btn-default" onclick="update_cart('addone','<?=$product['id'];?>','<?=$item['size'];?>');">+</button>
                                     <?php else: ?>
@@ -90,8 +90,8 @@ if($cart_id != ''){
                     $tax = TAXRATE * $sub_total;
                     $tax = number_format($tax,2);
                     $grand_total = $tax + $sub_total;
-                    
-                
+
+
             ?>
                 </tbody>
             </table>
@@ -176,45 +176,58 @@ if($cart_id != ''){
                                     <div id="step2" style="display: none;">
                                         <div class="form-group col-md-3">
                                             <label for="name">
-                                        Name on Card:
-                                        </label>
+                                                Name on Card:
+                                            </label>
                                             <input type="text" id="name" class="form-control">
                                         </div>
-                                        
-                                         <div class="form-group col-md-3">
-                                            <label for="name">
-                                        Name on Card:
-                                        </label>
-                                            <input type="text" id="name" class="form-control">
+
+                                        <div class="form-group col-md-3">
+                                            <label for="number">
+                                                Card Number:
+                                            </label>
+                                            <input type="text" id="number" class="form-control">
                                         </div>
-                                        
-                                         <div class="form-group col-md-3">
-                                            <label for="name">
-                                        Name on Card:
-                                        </label>
-                                            <input type="text" id="name" class="form-control">
+
+                                        <div class="form-group col-md-2">
+                                            <label for="cvc">
+                                                CVC:
+                                            </label>
+                                            <input type="text" id="cvc" class="form-control">
                                         </div>
-                                        
-                                         <div class="form-group col-md-3">
-                                            <label for="name">
-                                        Name on Card:
-                                        </label>
-                                            <input type="text" id="name" class="form-control">
+
+                                        <div class="form-group col-md-2">
+                                            <label for="exp-month">
+                                                Expire Month:
+                                            </label>
+                                            <select id="exp-month" class="form-control">
+                                                <option value=""></option>
+                                                <?php for($i=1; $i < 13; $i++): ?>
+                                                    <option value="<?=$i; ?>"><?=$i; ?></option>
+                                                <?php endfor; ?>
+                                            </select>
                                         </div>
-                                        
-                                         <div class="form-group col-md-3">
-                                            <label for="name">
-                                        Name on Card:
-                                        </label>
-                                            <input type="text" id="name" class="form-control">
+
+                                        <div class="form-group col-md-2">
+                                            <label for="exp-year">
+                                                Expire year:
+                                            </label>
+                                            <select id="exp-year" class="form-control">
+                                                <option value=""></option>
+                                                <?php $yr = date("Y"); ?>
+                                                <?php for($i=0; $i < 16; $i++): ?>
+                                                    <option value="<?=$yr+$i; ?>"><?=$yr+$i; ?></option>
+                                                <?php endfor; ?>
+                                            </select>
                                         </div>
                                     </div>
-                                </form>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="check_address();">Next</button>
+                            <button type="button" class="btn btn-primary" onclick="check_address();" id="next_button">Next</button>
+                            <button type="button" class="btn btn-primary" onclick="back_address();" id="back_button" style="display:none;">Back</button>
+                            <button type="submit" class="btn btn-primary" id="checkout_button" style="display:none;">Check out >></button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -224,6 +237,17 @@ if($cart_id != ''){
 
     </div>
     <script>
+
+        function back_adress(){
+            jQuery('#payment-errors').html("");
+            jQuery('#step1').css("display","block");
+            jQuery('#step2').css("display","none");
+            jQuery('#next_button').css("display","inline-block");
+            jQuery('#back_button').css("display","none");
+            jQuery('#checkout_button').css("display","none");
+            jQuery('#checkoutModalLabel').html("Shipping Address");
+        }
+
         function check_address() {
             var data = {
                 'full_name': jQuery('#full_name').val(),
@@ -245,6 +269,12 @@ if($cart_id != ''){
                     }
                     if (data == 'passed') {
                         jQuery('#payment-errors').html("");
+                        jQuery('#step1').css("display","none");
+                        jQuery('#step2').css("display","block");
+                        jQuery('#next_button').css("display","none");
+                        jQuery('#back_button').css("display","inline-block");
+                        jQuery('#checkout_button').css("display","inline-block");
+                        jQuery('#checkoutModalLabel').html("Enter Your Card Details");
                     }
 
                 },
