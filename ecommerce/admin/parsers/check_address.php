@@ -21,7 +21,7 @@
 //Check if all required fields are filled
 
     foreach($required as $f => $d){
-        if(empty($_POST[$f])|| $_POST[$f] == ''){
+        if(empty($_POST[$f]) || $_POST[$f] == ''){
             $errors[] = $d.' is required';
         }
     }

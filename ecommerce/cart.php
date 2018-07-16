@@ -138,7 +138,7 @@ if($cart_id != ''){
                             <div class="row">
                                 <form action="thankYou.php" method="post" id="payment-form">
                                     <span class="bg-danger" id="payment-errors"></span>
-                                    <div id="step1" style="dysplay: block;">
+                                    <div id="step1" style="display: block;">
                                         <div class="from-group col-md-6">
                                             <label for="full_name">Full Name:</label>
                                             <input class="form-control" id="full_name" name="full_name" type="text">
@@ -174,7 +174,7 @@ if($cart_id != ''){
                                             <input class="form-control" id="zip_code" name="zip_code" type="text">
                                         </div>
                                     </div>
-                                    <div id="step2" style="dysplay: none;"></div>
+                                    <div id="step2" style="display: none;"></div>
                                 </form>
                             </div>
                         </div>
@@ -192,7 +192,8 @@ if($cart_id != ''){
 <script>
 
     function check_address(){
-        var data = {'ful_name' : jQuery('#full_name').val(),
+        var data = {
+        'full_name' : jQuery('#full_name').val(),
         'email' : jQuery['#email'].val(),
         'street' : jQuery['#street'].val(),
         'street2' : jQuery['#street2'].val(),
@@ -202,10 +203,10 @@ if($cart_id != ''){
         
     }
     jQuery.ajax({
-       url : '/ecommerce/admin/parsers/check_address.php',
+        url : '/ecommerce/admin/parsers/check_address.php',
         method : 'POST',
         data : data,
-        sucess : function(data){
+        success : function(data){
             if(data != 'passed'){
                 jQuery('#payment-errors').html(data);
             }
