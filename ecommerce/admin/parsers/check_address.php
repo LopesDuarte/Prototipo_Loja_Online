@@ -22,6 +22,10 @@
             $errors[] = $d.' is required';
         }
     }
+//Check if valid email Adress
+if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+    $errors[] = 'Please enter a valid email';
+}
     if(!empty($errors)){
         echo display_errors($errors);
     }else{

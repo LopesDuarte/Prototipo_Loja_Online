@@ -142,38 +142,73 @@ if($cart_id != ''){
                                             <label for="full_name">Full Name:</label>
                                             <input class="form-control" id="full_name" name="full_name" type="text">
                                         </div>
-                                        
+
                                         <div class="from-group col-md-6">
                                             <label for="email">Email:</label>
                                             <input class="form-control" id="email" name="email" type="email">
                                         </div>
-                                        
+
                                         <div class="from-group col-md-6">
                                             <label for="street">Street Address</label>
                                             <input class="form-control" id="street" name="street" type="text">
                                         </div>
-                                        
+
                                         <div class="from-group col-md-6">
                                             <label for="street2">Street Address 2:</label>
                                             <input class="form-control" id="street2" name="street2" type="text">
                                         </div>
-                                        
+
                                         <div class="from-group col-md-6">
                                             <label for="city">City:</label>
                                             <input class="form-control" id="city" name="city" type="text">
                                         </div>
-                                        
+
                                         <div class="from-group col-md-6">
                                             <label for="country">Country:</label>
                                             <input class="form-control" id="country" name="country" type="text">
                                         </div>
-                                        
+
                                         <div class="from-group col-md-6">
                                             <label for="zip_code">Zip Code:</label>
                                             <input class="form-control" id="zip_code" name="zip_code" type="text">
                                         </div>
                                     </div>
-                                    <div id="step2" style="display: none;"></div>
+                                    <div id="step2" style="display: none;">
+                                        <div class="form-group col-md-3">
+                                            <label for="name">
+                                        Name on Card:
+                                        </label>
+                                            <input type="text" id="name" class="form-control">
+                                        </div>
+                                        
+                                         <div class="form-group col-md-3">
+                                            <label for="name">
+                                        Name on Card:
+                                        </label>
+                                            <input type="text" id="name" class="form-control">
+                                        </div>
+                                        
+                                         <div class="form-group col-md-3">
+                                            <label for="name">
+                                        Name on Card:
+                                        </label>
+                                            <input type="text" id="name" class="form-control">
+                                        </div>
+                                        
+                                         <div class="form-group col-md-3">
+                                            <label for="name">
+                                        Name on Card:
+                                        </label>
+                                            <input type="text" id="name" class="form-control">
+                                        </div>
+                                        
+                                         <div class="form-group col-md-3">
+                                            <label for="name">
+                                        Name on Card:
+                                        </label>
+                                            <input type="text" id="name" class="form-control">
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -188,34 +223,37 @@ if($cart_id != ''){
         </div>
 
     </div>
-<script>
-    function check_address(){
-        var data = {
-        'full_name' : jQuery('#full_name').val(),
-        'email' : jQuery('#email').val(),
-        'street' : jQuery('#street').val(),
-        'street2' : jQuery('#street2').val(),
-        'city' : jQuery('#city').val(),
-        'zip_code' : jQuery('#zip_code').val(),
-        'country' : jQuery('#country').val(),
-        
-    };
-    jQuery.ajax({
-        url : '/ecommerce/admin/parsers/check_address.php',
-        method : 'POST',
-        data : data,
-        success : function(data){
-            if(data != 'passed'){
-                jQuery('#payment-errors').html(data);
-            }
-            if(data == 'passed'){
-                alert('Passed');
-            }
-            
-        },
-        error : function(){alert("Something went wrong.");},
-    });
-    }
-</script>
+    <script>
+        function check_address() {
+            var data = {
+                'full_name': jQuery('#full_name').val(),
+                'email': jQuery('#email').val(),
+                'street': jQuery('#street').val(),
+                'street2': jQuery('#street2').val(),
+                'city': jQuery('#city').val(),
+                'zip_code': jQuery('#zip_code').val(),
+                'country': jQuery('#country').val(),
+
+            };
+            jQuery.ajax({
+                url: '/ecommerce/admin/parsers/check_address.php',
+                method: 'POST',
+                data: data,
+                success: function(data) {
+                    if (data != 'passed') {
+                        jQuery('#payment-errors').html(data);
+                    }
+                    if (data == 'passed') {
+                        jQuery('#payment-errors').html("");
+                    }
+
+                },
+                error: function() {
+                    alert("Something went wrong.");
+                },
+            });
+        }
+
+    </script>
     <?php include 'includes/footer.php';
 ?>
