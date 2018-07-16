@@ -11,6 +11,7 @@ if($cart_id != ''){
     $i = 1;
     $sub_total = 0;
     $item_count = 0;
+ 
 }
     
 ?>
@@ -37,7 +38,6 @@ if($cart_id != ''){
                 </thead>
                 <tbody>
                     <?php
-                    
                     foreach($items as $item){
                         $product_id = $item['id'];
                         $productQ = $db->query("SELECT * FROM products WHERE id = '{$product_id}'");
@@ -46,6 +46,7 @@ if($cart_id != ''){
                         foreach($sArray as $sizeString){
                             $s = explode(':',$sizeString);
                             if($s[0] == $item['size']){ 
+                                
                             $available = $s[1];
                             }
                         }
@@ -64,10 +65,12 @@ if($cart_id != ''){
                                
                                 <button class="btn btn-xs btn-default" onclick="update_cart('removeone','<?=$product['id'];?>','<?=$item['size'];?>');">-</button>
                                 <?=$item['quantity'];?>
-                                <?php if($item['quantity'] < $available): ?>                       <button class="btn btn-xs btn-default" onclick="update_cart('addone','<?=$product['id'];?>','<?=$item['size'];?>');">+</button>
+                                <?php if (!empty ($available)){ 
+                                    if($item['quantity'] < $available): ?>                       
+                                <button class="btn btn-xs btn-default" onclick="update_cart('addone','<?=$product['id'];?>','<?=$item['size'];?>');">+</button>
                                 <?php else: ?>
                                     <span class="text-danger">Max Reached</span>
-                                <?php endif; ?>                           
+                                <?php endif;} ?>                           
                                 
 
                             </td>
