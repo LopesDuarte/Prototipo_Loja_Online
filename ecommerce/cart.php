@@ -137,6 +137,12 @@ if($cart_id != ''){
                             <div class="row">
                                 <form action="thankYou.php" method="post" id="payment-form">
                                     <span class="bg-danger" id="payment-errors"></span>
+                                    <input type="hidden" name="tax" value="<?=$tax;?>">
+                                    <input type="hidden" name="sub_total" value="<?=$sub_total;?>">
+                                    <input type="hidden" name="grand_total" value="<?=$grand_total;?>">
+                                    <input type="hidden" name="cart_id" value="<?=$cart_id;?>">
+                                    <input type="hidden" name="description" value="<?=$item_count.' item'.(($item_count>1)?'s':'').' from MayBeat.';?>">
+                                    
                                     <div id="step1" style="display: block;">
                                         <div class="from-group col-md-6">
                                             <label for="full_name">Full Name:</label>
@@ -150,27 +156,27 @@ if($cart_id != ''){
 
                                         <div class="from-group col-md-6">
                                             <label for="street">Street Address</label>
-                                            <input class="form-control" id="street" name="street" type="text">
+                                            <input class="form-control" id="street" name="street" type="text" data-stripe="address_line1">
                                         </div>
 
                                         <div class="from-group col-md-6">
                                             <label for="street2">Street Address 2:</label>
-                                            <input class="form-control" id="street2" name="street2" type="text">
+                                            <input class="form-control" id="street2" name="street2" type="text" data-stripe="address_line2">
                                         </div>
 
                                         <div class="from-group col-md-6">
                                             <label for="city">City:</label>
-                                            <input class="form-control" id="city" name="city" type="text">
+                                            <input class="form-control" id="city" name="city" type="text" data-stripe="address_city">
                                         </div>
 
                                         <div class="from-group col-md-6">
                                             <label for="country">Country:</label>
-                                            <input class="form-control" id="country" name="country" type="text">
+                                            <input class="form-control" id="country" name="country" type="text" data-stripe="address_zip">
                                         </div>
 
                                         <div class="from-group col-md-6">
                                             <label for="zip_code">Zip Code:</label>
-                                            <input class="form-control" id="zip_code" name="zip_code" type="text">
+                                            <input class="form-control" id="zip_code" name="zip_code" type="text" data-stripe="address-country">
                                         </div>
                                     </div>
                                     <div id="step2" style="display: none;">
@@ -178,28 +184,28 @@ if($cart_id != ''){
                                             <label for="name">
                                                 Name on Card:
                                             </label>
-                                            <input type="text" id="name" class="form-control">
+                                            <input type="text" id="name" class="form-control" data-stripe="name">
                                         </div>
 
                                         <div class="form-group col-md-3">
                                             <label for="number">
                                                 Card Number:
                                             </label>
-                                            <input type="text" id="number" class="form-control">
+                                            <input type="text" id="number" class="form-control" data-stripe="number">
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="cvc">
                                                 CVC:
                                             </label>
-                                            <input type="text" id="cvc" class="form-control">
+                                            <input type="text" id="cvc" class="form-control" data-stripe="cvc">
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="exp-month">
                                                 Expire Month:
                                             </label>
-                                            <select id="exp-month" class="form-control">
+                                            <select id="exp-month" class="form-control" data-stripe="exp_month">
                                                 <option value=""></option>
                                                 <?php for($i=1; $i < 13; $i++): ?>
                                                     <option value="<?=$i; ?>"><?=$i; ?></option>
@@ -211,7 +217,7 @@ if($cart_id != ''){
                                             <label for="exp-year">
                                                 Expire year:
                                             </label>
-                                            <select id="exp-year" class="form-control">
+                                            <select id="exp-year" class="form-control" data-stripe="exp_year">
                                                 <option value=""></option>
                                                 <?php $yr = date("Y"); ?>
                                                 <?php for($i=0; $i < 16; $i++): ?>
@@ -237,14 +243,13 @@ if($cart_id != ''){
 
     </div>
     <script>
-
-        function back_adress(){
+        function back_address() {
             jQuery('#payment-errors').html("");
-            jQuery('#step1').css("display","block");
-            jQuery('#step2').css("display","none");
-            jQuery('#next_button').css("display","inline-block");
-            jQuery('#back_button').css("display","none");
-            jQuery('#checkout_button').css("display","none");
+            jQuery('#step1').css("display", "block");
+            jQuery('#step2').css("display", "none");
+            jQuery('#next_button').css("display", "inline-block");
+            jQuery('#back_button').css("display", "none");
+            jQuery('#checkout_button').css("display", "none");
             jQuery('#checkoutModalLabel').html("Shipping Address");
         }
 
@@ -269,11 +274,11 @@ if($cart_id != ''){
                     }
                     if (data == 'passed') {
                         jQuery('#payment-errors').html("");
-                        jQuery('#step1').css("display","none");
-                        jQuery('#step2').css("display","block");
-                        jQuery('#next_button').css("display","none");
-                        jQuery('#back_button').css("display","inline-block");
-                        jQuery('#checkout_button').css("display","inline-block");
+                        jQuery('#step1').css("display", "none");
+                        jQuery('#step2').css("display", "block");
+                        jQuery('#next_button').css("display", "none");
+                        jQuery('#back_button').css("display", "inline-block");
+                        jQuery('#checkout_button').css("display", "inline-block");
                         jQuery('#checkoutModalLabel').html("Enter Your Card Details");
                     }
 
@@ -283,6 +288,58 @@ if($cart_id != ''){
                 },
             });
         }
+        var stripe = Stripe('<?=STRIPE_PUBLIC;?>');
+        var elements = stripe.elements();
+
+var style = {
+  base: {
+    color: '#32325d',
+    lineHeight: '18px',
+    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    fontSmoothing: 'antialiased',
+    fontSize: '16px',
+    '::placeholder': {
+      color: '#aab7c4'
+    }
+  },
+  invalid: {
+    color: '#fa755a',
+    iconColor: '#fa755a'
+  }
+};
+
+// Create an instance of the card Element.
+var card = elements.create('card', {style: style});
+
+// Add an instance of the card Element into the `card-element` <div>.
+card.mount('#card-element');
+
+// Handle real-time validation errors from the card Element.
+card.addEventListener('change', function(event) {
+  var displayError = document.getElementById('card-errors');
+  if (event.error) {
+    displayError.textContent = event.error.message;
+  } else {
+    displayError.textContent = '';
+  }
+});
+
+// Handle form submission.
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  stripe.createToken(card).then(function(result) {
+    if (result.error) {
+      // Inform the user if there was an error.
+      var errorElement = document.getElementById('payment-errors');
+      errorElement.textContent = result.error.message;
+    } else {
+      // Send the token to your server.
+      stripeTokenHandler(result.token);
+    }
+  });
+});
 
     </script>
     <?php include 'includes/footer.php';
