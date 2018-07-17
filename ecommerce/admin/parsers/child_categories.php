@@ -8,6 +8,6 @@
 
 <option value=""></option>
 <?php while($child = mysqli_fetch_assoc($childQuery)) : ?>
-<option value="<?=$child['id']; ?>"<?=(($selected == $child['id'])?' selected':''); ?>><?=$child['category']: ?></option>
+<option value="<?=$child['id']; ?>"<?=(($selected == $child['id'])?' selected':''); ?>><?=$child['category']; ?></option>
 <?php endwhile; ?>
 <?php echo ob_get_clean(); ?>

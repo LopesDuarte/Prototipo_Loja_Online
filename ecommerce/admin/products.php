@@ -74,7 +74,7 @@ if (!empty($sizes)) {
 if ($_POST) {
   $errors= array();
   $required = array('title', 'brand', 'price', 'parent', 'sizes');
-  $allowed = array('png','jpg','jpeg','gif');
+  $allowed = array('png','jpg','jpeg','gif','PNG','JPEG','JPG','GIF');
   $photoName = array();
   $tmpLoc = array();
   $uploadPath = array();

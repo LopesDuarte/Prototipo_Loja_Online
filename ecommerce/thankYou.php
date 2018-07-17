@@ -74,7 +74,7 @@ foreach($items as $item){
 $db->query("UPDATE cart SET paid = 1 WHERE id = '{$cart_id}'");
 $db->query("INSERT INTO transactions
  (charge_id, cart_id, full_name, email, street, street2, city, zip_code, country, sub_total, tax, grand_total, description, txn_type) VALUES 
- ('$charge->id', '$cart_id', '$full_name', '$email', '$street', '$street2', '$city', '$zip_code', '$country', '$sub_total', '$tax', '$grand_total', '$description', '$charge->object')");
+ ('$charge->id', '$cart_id', '$full_name', '$email', '$street', '$street2', '$city', '$zip_code', '$country', '$sub_total', '$tax', '$grand_total', '$description', '$charge'->object)");
 
 $domain = ($_SERVER['HTTP_HOST'] != 'localhost')? '.'.$_SERVER['HTTP_POST'] : false;
 setcookie(CART_COOKIE, '', 1, "/", $domain, false);
